@@ -16,9 +16,9 @@ export default class PreamOneLiner {
                 switch (this.direction) {
                     case OneLinerDirection.PROCESS:
                         result = this.content
+                            .trim()
                             .replace(/(\r\n|\n|\r)/gm, PreamOneLiner.NEWLINE)
                             .replace(/(\t|    )/gm, PreamOneLiner.TAB)
-                            .trim()
                         break;
                     case OneLinerDirection.UNPROCESS:
                         result = this.content
@@ -34,9 +34,9 @@ export default class PreamOneLiner {
                 switch (this.direction) {
                     case OneLinerDirection.PROCESS:
                         result = this.content
+                            .trim()
                             .replace(/(\r\n|\n|\r)/gm, PreamOneLiner.NEWLINE)
                             .replace(/(\t|    )/gm, PreamOneLiner.TAB)
-                            .trim()
                         break;
                     case OneLinerDirection.UNPROCESS:
                         result = this.content

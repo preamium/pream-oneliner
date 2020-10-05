@@ -80,15 +80,9 @@ block content
 
 
 
-    xit('can bu used', async () => {
+    it.only('can bu used', async () => {
 
         const input: string = `
-@keyframes bganim {
-    0%{background-position:70% 0%}
-    50%{background-position:31% 100%}
-    100%{background-position:70% 0%}
-}
-
 html, body
 {
     background: linear-gradient(29deg, #00f0af, #00ace6);
@@ -131,7 +125,7 @@ html, body
     padding-top: 1em;
 }
 
-.time{ 
+.time{
     line-height: 1em;
     font-weight: 600;
     width: 100%;
@@ -142,33 +136,6 @@ html, body
     font-size: smaller;
     font-weight: lighter;
     text-align: center;
-}
-
-.bigicon{
-  position:absolute;
-  z-index: 9;
-  font-size: 40rem;
-  color:white;
-}
-
-@keyframes icon-simple-in {
-  from {left: -300px; bottom: -300px ; opacity: 0}
-  to {left: -80px; bottom: -80px ; opacity :.2}
-}
-
-@keyframes icon-simple-out {
-  from {left: -80px; bottom: -80px ;opacity :.2}
-  to {left: -300px; bottom: -300px ;opacity: 0}
-}
-
-@keyframes header-simple-out {
-  from {opacity :1}
-  to {opacity: 0}
-}
-
-@keyframes header-simple-in {
-    from {opacity: 0}
-    to {opacity :1}
 }
 
 .main > .content{
@@ -206,49 +173,6 @@ html, body
 
 .right{
     width:70%
-}
-
-.scene {
-  width: 8em;
-  height: 3em;
-  perspective: 1000px;
-}
-
-.scene div{
-    border-radius: 4px;
-    background-color: #75d3ed;
-    color: #009caf;
-}
-
-.card {
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  position: relative;
-}
-
-.card.is-flipped {
-  transform: rotateY(180deg);
-}
-
-.card__face {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  backface-visibility: hidden;
-  padding: 20px 24px;
-  line-height: 60px;
-}
-
-.card__face--front {
-    font-size: 2em;
-    overflow: hidden;
-    opacity: 0.3;
-}
-
-.card__face--back {
-  transform: rotateY(180deg);
 }
 `
         const oneliner: any = new OneLiner(input, OneLinerType.LESS, OneLinerDirection.PROCESS)
