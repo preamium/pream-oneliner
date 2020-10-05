@@ -1,0 +1,25 @@
+{
+    "name": "pream-oneliner",
+    "version": "1.0.0",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lgooday/pream-oneliner.git"
+    },
+    "scripts": {
+        "build": "rimraf ./dist && tsc -p src --declaration",
+        "test": "mocha -r ts-node/register ./spec/**/*.spec.ts"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "@types/chai": "^4.2.12",
+        "@types/mocha": "^8.0.2",
+        "@types/node": "^8.0.9",
+        "chai": "^4.2.0",
+        "mocha": "^8.1.1",
+        "rimraf": "^3.0.2",
+        "ts-node": "^6.0.3",
+        "tslint": "^5.18.0",
+        "typescript": "^3.7.5"
+    },
+    "main": "./dist/main.js"
+}
