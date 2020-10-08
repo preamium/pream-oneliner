@@ -1,9 +1,9 @@
 import { OneLinerType, OneLinerDirection } from './type.enum'
 
-export default class PreamOneLiner {
+const NEWLINE: string = '#N#'
+const TAB: string = '#T#'
 
-    private static NEWLINE: string = '#N#'
-    private static TAB: string = '#T#'
+export default class PreamOneLiner {
 
     constructor(private content: string, private type: OneLinerType, private direction: OneLinerDirection) {
     }
@@ -17,13 +17,13 @@ export default class PreamOneLiner {
                     case OneLinerDirection.PROCESS:
                         result = this.content
                             .trim()
-                            .replace(/(\r\n|\n|\r)/gm, PreamOneLiner.NEWLINE)
-                            .replace(/(\t|    )/gm, PreamOneLiner.TAB)
+                            .replace(/(\r\n|\n|\r)/gm, NEWLINE)
+                            .replace(/(\t|    )/gm, TAB)
                         break;
                     case OneLinerDirection.UNPROCESS:
                         result = this.content
-                            .replace(new RegExp(PreamOneLiner.NEWLINE, 'g'), '\n')
-                            .replace(new RegExp(PreamOneLiner.TAB, 'g'), '    ')
+                            .replace(new RegExp(NEWLINE, 'g'), '\n')
+                            .replace(new RegExp(TAB, 'g'), '    ')
                             .trim()
                         break;
                     default:
@@ -35,13 +35,13 @@ export default class PreamOneLiner {
                     case OneLinerDirection.PROCESS:
                         result = this.content
                             .trim()
-                            .replace(/(\r\n|\n|\r)/gm, PreamOneLiner.NEWLINE)
-                            .replace(/(\t|    )/gm, PreamOneLiner.TAB)
+                            .replace(/(\r\n|\n|\r)/gm, NEWLINE)
+                            .replace(/(\t|    )/gm, TAB)
                         break;
                     case OneLinerDirection.UNPROCESS:
                         result = this.content
-                            .replace(new RegExp(PreamOneLiner.NEWLINE, 'g'), '\n')
-                            .replace(new RegExp(PreamOneLiner.TAB, 'g'), '    ')
+                            .replace(new RegExp(NEWLINE, 'g'), '\n')
+                            .replace(new RegExp(TAB, 'g'), '    ')
                             .trim()
                         break;
                     default:
@@ -55,4 +55,8 @@ export default class PreamOneLiner {
         return Promise.resolve(result)
     }
 
+}
+
+export {
+    OneLinerType, OneLinerDirection, NEWLINE, TAB,
 }

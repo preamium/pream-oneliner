@@ -1,6 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.TAB = exports.NEWLINE = exports.OneLinerDirection = exports.OneLinerType = void 0;
 var type_enum_1 = require("./type.enum");
+Object.defineProperty(exports, "OneLinerType", { enumerable: true, get: function () { return type_enum_1.OneLinerType; } });
+Object.defineProperty(exports, "OneLinerDirection", { enumerable: true, get: function () { return type_enum_1.OneLinerDirection; } });
+var NEWLINE = '#N#';
+exports.NEWLINE = NEWLINE;
+var TAB = '#T#';
+exports.TAB = TAB;
 var PreamOneLiner = /** @class */ (function () {
     function PreamOneLiner(content, type, direction) {
         this.content = content;
@@ -15,13 +22,13 @@ var PreamOneLiner = /** @class */ (function () {
                     case type_enum_1.OneLinerDirection.PROCESS:
                         result = this.content
                             .trim()
-                            .replace(/(\r\n|\n|\r)/gm, PreamOneLiner.NEWLINE)
-                            .replace(/(\t|    )/gm, PreamOneLiner.TAB);
+                            .replace(/(\r\n|\n|\r)/gm, NEWLINE)
+                            .replace(/(\t|    )/gm, TAB);
                         break;
                     case type_enum_1.OneLinerDirection.UNPROCESS:
                         result = this.content
-                            .replace(new RegExp(PreamOneLiner.NEWLINE, 'g'), '\n')
-                            .replace(new RegExp(PreamOneLiner.TAB, 'g'), '    ')
+                            .replace(new RegExp(NEWLINE, 'g'), '\n')
+                            .replace(new RegExp(TAB, 'g'), '    ')
                             .trim();
                         break;
                     default:
@@ -33,13 +40,13 @@ var PreamOneLiner = /** @class */ (function () {
                     case type_enum_1.OneLinerDirection.PROCESS:
                         result = this.content
                             .trim()
-                            .replace(/(\r\n|\n|\r)/gm, PreamOneLiner.NEWLINE)
-                            .replace(/(\t|    )/gm, PreamOneLiner.TAB);
+                            .replace(/(\r\n|\n|\r)/gm, NEWLINE)
+                            .replace(/(\t|    )/gm, TAB);
                         break;
                     case type_enum_1.OneLinerDirection.UNPROCESS:
                         result = this.content
-                            .replace(new RegExp(PreamOneLiner.NEWLINE, 'g'), '\n')
-                            .replace(new RegExp(PreamOneLiner.TAB, 'g'), '    ')
+                            .replace(new RegExp(NEWLINE, 'g'), '\n')
+                            .replace(new RegExp(TAB, 'g'), '    ')
                             .trim();
                         break;
                     default:
@@ -51,8 +58,6 @@ var PreamOneLiner = /** @class */ (function () {
         }
         return Promise.resolve(result);
     };
-    PreamOneLiner.NEWLINE = '#N#';
-    PreamOneLiner.TAB = '#T#';
     return PreamOneLiner;
 }());
 exports.default = PreamOneLiner;
